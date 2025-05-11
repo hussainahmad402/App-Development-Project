@@ -1,0 +1,32 @@
+import 'package:chat/core/constants/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class customtextfield extends StatelessWidget {
+  const customtextfield({
+    super.key,this.onChanged,this.hinttext,this.focusNode
+  });
+
+  final void Function(String)? onChanged;
+  final String? hinttext;
+  final FocusNode? focusNode;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      onChanged:onChanged ,
+      focusNode: focusNode,
+      decoration: InputDecoration(
+        filled: true,
+        hintText: hinttext,
+        hintStyle: TextStyle(color: grey),
+        fillColor: grey.withAlpha(80),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+      ),
+    );
+  }
+}
