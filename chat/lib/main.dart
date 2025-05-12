@@ -1,9 +1,12 @@
+import 'package:chat/core/services/database_service.dart';
 import 'package:chat/core/utils/route_utils.dart';
 import 'package:chat/firebase_options.dart';
+import 'package:chat/ui/screens/other/user_provider.dart';
 import 'package:chat/ui/screens/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,10 +22,13 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder:
           (context, child) =>
-              MaterialApp(
-                debugShowCheckedModeBanner: false,
-                onGenerateRoute: RouteUtils.onGenerateRoute,
-                home:SplashScreen()),
+              ChangeNotifierProvider(
+                create: (context) => UserProvider(DatabaseService() ),
+                child: MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  onGenerateRoute: RouteUtils.onGenerateRoute,
+                  home:SplashScreen()),
+              ),
     );
   }
 }

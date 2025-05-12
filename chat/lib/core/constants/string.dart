@@ -5,6 +5,12 @@ const frame = "assets/frame.jpeg";
 
 const splash = "/splash";
 
+// Icons
+const homeIcon = "assets/home_icon.png";
+const chatIcon = "assets/chats_icon.png";
+const profileIcon = "assets/profile_icon.png";
+
+
 //Auth Screens
 const signup = "/signup";
 const login = "/login";

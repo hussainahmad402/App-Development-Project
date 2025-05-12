@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 
 class RouteUtils {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
     switch (settings.name) {
       case splash:
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case home:
-        return MaterialPageRoute(builder: (context) => HomeScreen(uid: args as String,));
+        return MaterialPageRoute(builder: (context) => HomeScreen());
       case signup:
         return MaterialPageRoute(builder: (context) => Signup());
       case login:
