@@ -9,6 +9,7 @@ const splash = "/splash";
 const homeIcon = "assets/home_icon.png";
 const chatIcon = "assets/chats_icon.png";
 const profileIcon = "assets/profile_icon.png";
+const searchIcon = "assets/search_icon.png";
 
  
 //Auth Screens
