@@ -6,13 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class customtextfield extends StatelessWidget {
   const customtextfield({
-    super.key,this.onChanged,this.hinttext,this.focusNode,this.isSearch=false
+    super.key,this.onChanged,this.hinttext,this.focusNode,this.isSearch=false,this.isChat=false
   });
 
   final void Function(String)? onChanged;
   final String? hinttext;
   final FocusNode? focusNode;
   final bool isSearch;
+  final bool isChat;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,10 @@ class customtextfield extends StatelessWidget {
           decoration: BoxDecoration(color: primary,borderRadius: BorderRadius.circular(8.r)),
           child: Image.asset(searchIcon,),
         ):null,
-        fillColor: grey.withAlpha(80),
+        fillColor:isChat ?white: grey.withAlpha(80),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(isChat?25.r:8.r),
         ),
       ),
     );

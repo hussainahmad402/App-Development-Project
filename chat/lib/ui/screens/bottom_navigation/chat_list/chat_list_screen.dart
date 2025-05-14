@@ -1,4 +1,5 @@
 import 'package:chat/core/constants/colors.dart';
+import 'package:chat/core/constants/string.dart';
 import 'package:chat/core/constants/styles.dart';
 import 'package:chat/ui/widgets/custom_textfield.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,7 +27,7 @@ class ChatListScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
               itemCount: 10,
               separatorBuilder: (context, index) => 8.verticalSpace,
-              itemBuilder: (context, index) => ChatTile(),
+              itemBuilder: (context, index) => ChatTile(onTap: () => Navigator.pushNamed(context, chatRoom),),
             ),
           ),
         ],
@@ -36,11 +37,14 @@ class ChatListScreen extends StatelessWidget {
 }
 
 class ChatTile extends StatelessWidget {
-  const ChatTile({super.key});
+  const ChatTile({super.key,this.onTap});
+
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10.w),
       tileColor: grey.withAlpha(50),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

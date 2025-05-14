@@ -19,3 +19,4 @@ const login = "/login";
 
 const home = "/home";
 const wrapper = "/wrapper";
+const chatRoom = "/ChatRoom";
