@@ -1,7 +1,6 @@
 import 'package:chat/core/constants/colors.dart';
 import 'package:chat/core/constants/styles.dart';
 import 'package:chat/ui/screens/bottom_navigation/chat_list/chat_room/chat_screen_widgets.dart';
-import 'package:chat/ui/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +27,7 @@ class ChatScreen extends StatelessWidget {
                       separatorBuilder: (context, index) => 10.verticalSpace,
                       itemCount: 5,
                       itemBuilder:
-                          (context, index) => chatBubble(isCurrenUser: false),
+                          (context, index) => chatBubble(isCurrenUser: true),
                     ),
                   ),
                 ],

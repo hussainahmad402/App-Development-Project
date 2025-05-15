@@ -1,6 +1,8 @@
 import 'package:chat/core/constants/string.dart';
 import 'package:chat/ui/screens/bottom_navigation/bottom_navigation_viewmodel.dart';
 import 'package:chat/ui/screens/bottom_navigation/chat_list/chat_list_screen.dart';
+import 'package:chat/ui/screens/bottom_navigation/profile/profile_screen.dart';
+import 'package:chat/ui/screens/other/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,16 +12,17 @@ class BottomNavigationScreen extends StatelessWidget {
   static final List<Widget> _screens = [
     Center(child: const Text("First Screen")),
     const ChatListScreen(),
-    Center(child: const Text("Third Screen")),
+    ProfileScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+     final currentUser = Provider.of<UserProvider>(context).user;
+    return  ChangeNotifierProvider(
       create: (context) => BottomNavigationViewmodel(),
       child: Consumer<BottomNavigationViewmodel>(
         builder: (context, model, _) {
-          return Scaffold(
+          return currentUser ==null ? Center( child: CircularProgressIndicator()) :Scaffold(
             body: BottomNavigationScreen._screens[model.currentIndex],
 
             bottomNavigationBar: BottomNavBar(onTap: model.setIndex,items: [ 
