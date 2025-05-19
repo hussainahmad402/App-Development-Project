@@ -39,7 +39,7 @@ class ChatListScreen extends StatelessWidget {
                     separatorBuilder: (context, index) => 8.verticalSpace,
                     itemBuilder: (context, index) {
                       final user =  model.filteredUsers[index];
-                      return  ChatTile(user: user ,onTap: () => Navigator.pushNamed(context, chatRoom));}
+                      return  ChatTile(user: user ,onTap: () => Navigator.pushNamed(context, chatRoom,arguments: user));}
                   ),
                 ),
               ],

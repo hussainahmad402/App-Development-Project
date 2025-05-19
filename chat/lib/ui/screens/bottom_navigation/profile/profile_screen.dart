@@ -10,9 +10,20 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: [50.verticalSpace,CustomButton(text: "Logout",onPressed:() {
-      AuthService().logout();
-      Provider.of<UserProvider>(context).clearUser();
-    },)],),);
+    return Scaffold(
+      body: Column(
+        children: [
+          50.verticalSpace,
+          CustomButton(
+            text: "Logout",
+            onPressed: () {
+              Provider.of<UserProvider>(context,listen: false).clearUser();
+              AuthService().logout();
+              
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

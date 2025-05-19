@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class customtextfield extends StatelessWidget {
-  const customtextfield({
-    super.key,this.onChanged,this.hinttext,this.focusNode,this.isSearch=false,this.isChat=false
+   customtextfield({
+    super.key,this.onTap,this.onChanged,this.hinttext,this.controller,this.focusNode,this.isSearch=false,this.isChat=false
   });
 
   final void Function(String)? onChanged;
@@ -14,10 +14,13 @@ class customtextfield extends StatelessWidget {
   final FocusNode? focusNode;
   final bool isSearch;
   final bool isChat;
+  final TextEditingController? controller;
+  void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       onChanged:onChanged ,
       focusNode: focusNode,
       decoration: InputDecoration(
@@ -30,7 +33,7 @@ class customtextfield extends StatelessWidget {
           padding: EdgeInsets.all(13),
           decoration: BoxDecoration(color: primary,borderRadius: BorderRadius.circular(8.r)),
           child: Image.asset(searchIcon,),
-        ):null,
+        ):isChat?InkWell(onTap: onTap,child: Icon(Icons.send)):null,
         fillColor:isChat ?white: grey.withAlpha(80),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

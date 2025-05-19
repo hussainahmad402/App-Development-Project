@@ -1,5 +1,4 @@
 import 'package:chat/ui/screens/bottom_navigation/bottom_navigation_screen.dart';
-import 'package:chat/ui/screens/home/home_screen.dart';
 import 'package:chat/ui/screens/login/login.dart';
 import 'package:chat/ui/screens/other/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,14 +1,23 @@
 import 'package:chat/core/constants/colors.dart';
 import 'package:chat/core/constants/styles.dart';
+import 'package:chat/core/models/message_model.dart';
 import 'package:chat/ui/widgets/custom_textfield.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class ChatBottomField extends StatelessWidget {
-  const ChatBottomField({super.key, this.onChanged, this.onTap});
+  const ChatBottomField({
+    super.key,
+    this.controller,
+    this.onChanged,
+    this.onTap,
+  });
 
   final void Function(String)? onChanged;
   final void Function()? onTap;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,15 +26,17 @@ class ChatBottomField extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: onTap,
+            onTap: null ,
             child: CircleAvatar(backgroundColor: white, child: Icon(Icons.add)),
           ),
           10.horizontalSpace,
           Expanded(
             child: customtextfield(
+              controller: controller,
               isChat: true,
               hinttext: "Write message.. ",
               onChanged: (p0) {},
+              onTap: onTap,
             ),
           ),
         ],
@@ -35,7 +46,12 @@ class ChatBottomField extends StatelessWidget {
 }
 
 class chatBubble extends StatelessWidget {
-  const chatBubble({super.key, this.isCurrenUser = true});
+  const chatBubble({
+    super.key,
+    this.isCurrenUser = true,
+    required this.message,
+  });
+  final Message message;
 
   final bool isCurrenUser;
 
@@ -66,15 +82,18 @@ class chatBubble extends StatelessWidget {
         ),
 
         child: Column(
-          crossAxisAlignment:isCurrenUser? CrossAxisAlignment.start:CrossAxisAlignment.end,
+          crossAxisAlignment:
+              isCurrenUser ? CrossAxisAlignment.start : CrossAxisAlignment.end,
           children: [
-            
             Text(
-              "data",
+              message.content!,
               style: body.copyWith(color: isCurrenUser ? white : null),
             ),
             5.verticalSpace,
-            Text("08:00 PM ",style: small.copyWith(color:isCurrenUser? white:primary),)
+            Text(
+             DateFormat('hh:mm a').format(message.timeStamp!),
+              style: small.copyWith(color: isCurrenUser ? white : primary),
+            ),
           ],
         ),
       ),
