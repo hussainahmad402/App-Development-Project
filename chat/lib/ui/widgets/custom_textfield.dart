@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class customtextfield extends StatelessWidget {
    customtextfield({
-    super.key,this.onTap,this.onChanged,this.hinttext,this.controller,this.focusNode,this.isSearch=false,this.isChat=false
+    super.key,this.onTap,this.onChanged,this.hinttext,this.controller,this.focusNode,this.isSearch=false,this.isChat=false,this.isPassword=false
   });
 
   final void Function(String)? onChanged;
@@ -16,6 +16,7 @@ class customtextfield extends StatelessWidget {
   final bool isChat;
   final TextEditingController? controller;
   void Function()? onTap;
+  final bool isPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,7 @@ class customtextfield extends StatelessWidget {
       controller: controller,
       onChanged:onChanged ,
       focusNode: focusNode,
+      obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,
         hintText: hinttext,
