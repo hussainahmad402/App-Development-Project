@@ -1,20 +1,34 @@
-<<<<<<< HEAD
-# chat
+# Chat Application
 
-A new Flutter project.
+A real-time chat application developed as part of the App Development Project. This app allows seamless communication between users, offering features such as real-time messaging, user authentication, and a responsive user interface.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- 🔒 User Authentication (Sign up & Log in)
+- 💬 Real-time Messaging
+- 📱 Responsive UI
+- 👥 User Profiles
+- 🏠 Chat Rooms Support
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Frontend**: Flutter
+- **Backend**: Firebase
+- **Database**: Firestore (Cloud Firestore)
+- **Authentication**: Firebase Authentication
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# App-Development-Project
->>>>>>> daa284c252d49d7b0059f91518e87e538dad4e06
+## 📦 Getting Started
+
+### Prerequisites
+
+- Flutter SDK installed
+- A configured Firebase project
+- Android Studio or VS Code with Flutter & Dart plugins
+- Git
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/hussainahmad402/App-Development-Project.git
