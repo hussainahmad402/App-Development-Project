@@ -34,7 +34,7 @@ class LoginViewmodel extends BaseViewmodel {
       log(e.message!);
       setstate(ViewState.idle);
       rethrow;
-    } catch (e) {
+    } catch (e) { 
       log(e.toString());
       setstate(ViewState.idle);
       rethrow;

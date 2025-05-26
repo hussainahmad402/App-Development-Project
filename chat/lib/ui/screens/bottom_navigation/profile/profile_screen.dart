@@ -10,19 +10,43 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
+
     return Scaffold(
-      body: Column(
-        children: [
-          50.verticalSpace,
-          CustomButton(
-            text: "Logout",
-            onPressed: () {
-              Provider.of<UserProvider>(context,listen: false).clearUser();
-              AuthService().logout();
-              
-            },
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 70),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (user?.imageurl != null && user!.imageurl!.isNotEmpty)
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: NetworkImage(user.imageurl!),
+                ),
+              if (user != null) ...[
+                SizedBox(height: 20),
+                Text(
+                  user.name ?? 'No Name',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  user.email ?? 'No Email',
+                  style: TextStyle(fontSize: 30, color: Colors.grey[700]),
+                ),
+                SizedBox(height: 30),
+              ],
+              CustomButton(
+                text: "Logout",
+                onPressed: () {
+                  Provider.of<UserProvider>(context, listen: false).clearUser();
+                  AuthService().logout();
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

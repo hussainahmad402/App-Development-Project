@@ -1,13 +1,9 @@
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:chat/core/models/message_model.dart';
 import 'package:chat/core/models/user_model.dart';
 import 'package:chat/core/others/base_viewmodel.dart';
 import 'package:chat/core/services/chat_service.dart';
-import 'package:chat/ui/screens/bottom_navigation/chat_list/chat_list_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 
 class ChatScreenViewmodel extends BaseViewmodel {
   final ChatService _chatService;
@@ -59,6 +55,8 @@ class ChatScreenViewmodel extends BaseViewmodel {
         receiverId: _receiver.uid,
       );
       await _chatService.saveMessage(message.toMap(), chatRoomId);
+
+      _chatService.updateLastMessage(_currentUser.uid!, _receiver.uid!, message.content!,now.millisecondsSinceEpoch);
 
       _messageController.clear();
     } catch (e) {

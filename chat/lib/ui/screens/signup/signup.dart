@@ -5,14 +5,12 @@ import 'package:chat/core/enums/enums.dart';
 import 'package:chat/core/extension/widget_extension.dart';
 import 'package:chat/core/services/auth_service.dart';
 import 'package:chat/core/services/database_service.dart';
-import 'package:chat/core/services/storage_service.dart';
 import 'package:chat/ui/screens/signup/signup_viewmodel.dart';
 import 'package:chat/ui/widgets/custom_button.dart';
 import 'package:chat/ui/widgets/custom_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/find_locale.dart';
 import 'package:provider/provider.dart';
 
 class Signup extends StatelessWidget {

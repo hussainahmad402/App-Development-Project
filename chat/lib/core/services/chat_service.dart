@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatService {
@@ -11,6 +10,35 @@ class ChatService {
           .doc(chatRoomId)
           .collection("messages")
           .add(message);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  updateLastMessage(
+    String currentUid,
+    String receiverUid,
+    String message,
+    int timestamp,
+  ) async {
+    try {
+      await _fire.collection("users").doc(currentUid).update({
+        "lastMessage": {
+          "content": message,
+          "timestamp": timestamp,
+          "senderId": currentUid,
+        },
+        "unreadCounter":FieldValue.increment(1)
+      });
+
+      await _fire.collection("users").doc(receiverUid).update({
+        "lastMessage": {
+          "content": message,
+          "timestamp": timestamp,
+          "senderId": currentUid,
+        },
+        "unreadCounter":0
+      });
     } catch (e) {
       rethrow;
     }

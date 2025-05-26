@@ -2,7 +2,6 @@ import 'package:chat/core/constants/colors.dart';
 import 'package:chat/core/constants/styles.dart';
 import 'package:chat/core/models/message_model.dart';
 import 'package:chat/ui/widgets/custom_textfield.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';

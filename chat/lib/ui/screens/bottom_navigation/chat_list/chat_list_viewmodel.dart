@@ -26,12 +26,20 @@ class ChatListViewmodel extends BaseViewmodel {
   fetchUser() async {
     try {
       setstate(ViewState.loading);
-      final res = await _db.fetchUser(_currentUser.uid!);
-      if (res != null) {
-        _users = res.map((e) => UserModel.fromMap(e)).toList();
-        _filteredUsers = users;
+      // final res = await _db.fetchUser(_currentUser.uid!);
+      _db.fetchUserStream(_currentUser.uid!).listen((data){
+        _users = data.docs.map((e)=>UserModel.fromMap(e.data())).toList();
+        _filteredUsers = _users;
         notifyListeners();
-      }
+      });
+       
+
+
+      // if (res != null) {
+      //   _users = res.map((e) => UserModel.fromMap(e)).toList();
+      //   _filteredUsers = users;
+      //   notifyListeners();
+      // }
       setstate(ViewState.idle);
     } catch (e) {
       log("Error Fetching Users : $e");

@@ -1,14 +1,10 @@
 import 'dart:developer';
-import 'dart:io';
 import 'package:chat/core/enums/enums.dart';
 import 'package:chat/core/models/user_model.dart';
 import 'package:chat/core/others/base_viewmodel.dart';
 import 'package:chat/core/services/auth_service.dart';
 import 'package:chat/core/services/database_service.dart';
-import 'package:chat/core/services/storage_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class SignupViewmodel extends BaseViewmodel {
   final AuthService _auth;

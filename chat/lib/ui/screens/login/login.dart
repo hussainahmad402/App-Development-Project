@@ -46,16 +46,20 @@ class Login extends StatelessWidget {
                   ),
                   40.verticalSpace,
                   CustomButton(
-                    loading: model.state==ViewState.loading,
-                    onPressed: model.state==ViewState.loading?null: () async {
-                      try {
-                        await model.login();
-                        context.showSnackbar("User SignIn Successfully");
-                        Navigator.pushNamed(context, wrapper);
-                      } on FirebaseAuthException catch (e) {
-                        context.showSnackbar(e.toString());
-                      }
-                    },
+                    loading: model.state == ViewState.loading,
+                    onPressed:
+                        model.state == ViewState.loading
+                            ? null
+                            : () async {
+                              try {
+                                await model.login();
+                                context.showSnackbar(
+                                  "User SignIn Successfully",
+                                );
+                              } on FirebaseAuthException catch (e) {
+                                context.showSnackbar(e.toString());
+                              }
+                            },
                     text: "Login",
                   ),
                   20.verticalSpace,
