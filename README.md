@@ -1,4 +1,4 @@
-# 🚀 App Development Projects by Hussain Ahmad Madni
+# 🚀 App Development Projects 
 
 Welcome to my portfolio of app development projects! This repository contains multiple mobile applications I've developed using **Flutter** and other modern technologies. Each project is organized in its own directory and comes with its own set of features and setup instructions.
 
